@@ -24,14 +24,14 @@ function Music({ data }) {
         />
       </div>
       <div className={style.names}>
-        <p className={style.song}>{data.name}</p>
-        <p className={style.artist}>{data.artist}</p>
+        <p className={style.song}>{data.nombre}</p>
+        <p className={style.artist}>{data.autor}</p>
       </div>
       <div className={classNames(style.type, style.center)}>
-        <div className={style.desc}>{data.type}</div>
+        <div className={style.desc}>{data.genero}</div>
       </div>
       <div className={classNames(style.time, style.center)}>
-        <p className={style.desc}>{data.time}</p>
+        <p className={style.desc}>{data.duracion}</p>
       </div>
       <div className={classNames(style.actions, style.center)}>
         <button className={style.btnAction} onClick={() => setAction(!action)}>

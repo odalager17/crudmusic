@@ -1,4 +1,5 @@
-import { useState } from "react";
+import axios from "axios";
+import { useState, useEffect } from "react";
 import { Plus } from "react-feather";
 import style from "../assets/styles/Dashboard.module.css";
 import Music from "../components/card/Music";
@@ -10,75 +11,27 @@ import Modal from "../components/modal/Modal";
 
 const modalStates = { addSong: false };
 
-const music = [
-  {
-    name: "song",
-    artist: "name artist",
-    type: "genero",
-    time: "3:00",
-  },
-  {
-    name: "song",
-    artist: "name artist",
-    type: "genero",
-    time: "3:00",
-  },
-  {
-    name: "song",
-    artist: "name artist",
-    type: "genero",
-    time: "3:00",
-  },
-  {
-    name: "song",
-    artist: "name artist",
-    type: "genero",
-    time: "3:00",
-  },
-  {
-    name: "song",
-    artist: "name artist",
-    type: "genero",
-    time: "3:00",
-  },
-  {
-    name: "song",
-    artist: "name artist",
-    type: "genero",
-    time: "3:00",
-  },
-  {
-    name: "song",
-    artist: "name artist",
-    type: "genero",
-    time: "3:00",
-  },
-  {
-    name: "song",
-    artist: "name artist",
-    type: "genero",
-    time: "3:00",
-  },
-  {
-    name: "song",
-    artist: "name artist",
-    type: "genero",
-    time: "3:00",
-  },
-  {
-    name: "song",
-    artist: "name artist",
-    type: "genero",
-    time: "3:00",
-  },
-];
-
 function Dashboard() {
   const [activeModals, setActiveModals] = useState(modalStates);
+  const [musics, setMusics] = useState([]);
 
   const changeModalState = (modal) => async () => {
     setActiveModals({ ...activeModals, [modal]: !activeModals[modal] });
   };
+
+  useEffect(() => {
+    async function getMusics() {
+      try {
+        const URL = "http://localhost:8080/api/musica";
+        const response = await axios.get(URL);
+        if (response.data) setMusics(response.data);
+      } catch (error) {
+        return null;
+      }
+    }
+
+    getMusics();
+  }, []);
 
   return (
     <div className={style.container}>
@@ -119,8 +72,8 @@ function Dashboard() {
                 </button>
               </div>
               <div className={style.list}>
-                {music.map((data, index) => (
-                  <Music key={index} data={data} />
+                {musics.map((data) => (
+                  <Music key={data.id} data={data} />
                 ))}
               </div>
             </div>
