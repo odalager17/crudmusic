@@ -7,7 +7,7 @@ import Modal from "../modal/Modal";
 
 const modalStates = { editSong: false, deleteSong: false };
 
-function Music({ data }) {
+function Music({ data, status }) {
   const [action, setAction] = useState(false);
   const [activeModals, setActiveModals] = useState(modalStates);
 
@@ -62,7 +62,11 @@ function Music({ data }) {
         close={changeModalState("editSong")}
       >
         <div className={style.contForm}>
-          <FormEdit />
+          <FormEdit
+            data={data}
+            status={status}
+            close={changeModalState("editSong")}
+          />
         </div>
       </Modal>
       <Modal

@@ -14,7 +14,7 @@ function FormCreate({ status, close }) {
       alert("Ocurrio un error al agregar");
       return null;
     }
-    status(true);
+    status((prevStatus) => !prevStatus);
     close();
   };
 
