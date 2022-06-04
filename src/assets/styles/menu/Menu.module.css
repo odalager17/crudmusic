@@ -1,0 +1,72 @@
+.contMenu {
+  background: var(--terciario);
+  width: 7vw;
+  height: 100%;
+}
+
+.contMenu .logo,
+.contMenu .logout {
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contMenu .logo .icon {
+  background: var(--primario);
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.contMenu .logo {
+  color: var(--terciario);
+}
+
+.contMenu .menu {
+  width: 100%;
+  height: calc(100% - 10rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.option {
+  background: transparent;
+  width: 2.3rem;
+  height: 2.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 0.5rem;
+  transition: all .5s ease;
+  cursor: pointer;
+}
+
+.option:hover {
+    background: var(--primario);
+}
+
+.active {
+  background: var(--primario);
+}
+
+.option .icon {
+  color: var(--cuarto);
+  line-height: 15px;
+}
+
+.option:hover .icon {
+  color: var(--terciario);
+}
+
+.active .icon {
+    color: var(--terciario);
+}

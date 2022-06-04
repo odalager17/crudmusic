@@ -1,0 +1,118 @@
+.header {
+  /* background: var(--terciario); */
+  width: 100%;
+  height: 5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.header .head {
+  /* background: #ee8181; */
+  grid-column: 1/4;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header .head .welcome {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.header .head .welcome .name {
+  color: var(--secundario);
+  font-size: 1.5rem;
+}
+
+.header .head .welcome .desc {
+  color: var(--cuarto);
+  font-size: 0.9rem;
+}
+
+.header .head .contSearch {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+}
+
+.header .head .contSearch .notify {
+  background: var(--terciario);
+  width: 2.3rem;
+  height: 2.3rem;
+  border: none;
+  border-radius: 50%;
+  position: relative;
+  color: var(--cuarto);
+}
+
+.header .head .contSearch .notify .point {
+  background: var(--primario);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0.4rem;
+  right: 0.5rem;
+}
+
+.header .head .contSearch .search {
+  background: var(--terciario);
+  width: 15rem;
+  height: 2.3rem;
+  display: flex;
+  flex-direction: row;
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+.header .head .contSearch .search .contIcon {
+  background: transparent;
+  width: 2.3rem;
+  height: 2.3rem;
+  color: var(--cuarto);
+  border: none;
+}
+
+.header .head .contSearch .search .input {
+  width: calc(100% - 2.3rem);
+  height: 100%;
+  border: none;
+  padding-right: 1rem;
+}
+
+.header .profile {
+  background: var(--terciario);
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.header .profile .photo {
+  background: #000;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.header .profile .photo .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.header .profile .user .name {
+    color: var(--secundario);
+    font-size: 1rem;
+    text-transform: capitalize;
+}
+
+.header .profile .user .mail {
+    color: var(--cuarto);
+    font-size: .8rem;
+}

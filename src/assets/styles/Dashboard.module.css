@@ -1,0 +1,117 @@
+.container {
+  /* background: #eba2a2; */
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  /* overflow: hidden; */
+}
+
+.container .spacework {
+  background: var(--fondo);
+  width: 93vw;
+  height: 100%;
+}
+
+.container .spacework .contMusic {
+  /* background: #4ec643; */
+  width: 100%;
+  height: calc(100% - 5rem);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.container .spacework .contMusic .allMusic {
+  /* background: #ff5454; */
+  grid-column: 1/4;
+  padding: 1rem 2rem 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.container .spacework .contMusic .allMusic .contPlaylist {
+  /* background: #000; */
+  width: 100%;
+  height: 13rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.container .spacework .contMusic .allMusic .musicRegister {
+  background: var(--terciario);
+  width: 100%;
+  height: 23rem;
+  border-radius: 1rem;
+  overflow: scroll;
+}
+
+.container .spacework .contMusic .allMusic .musicRegister .head {
+  /* background: #000; */
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.container .spacework .contMusic .allMusic .musicRegister .head .title {
+  color: var(--secundario);
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.container .spacework .contMusic .allMusic .musicRegister .head .btnAdd {
+  background: var(--primario);
+  width: 6rem;
+  height: 1.8rem;
+  color: var(--terciario);
+  font-size: 0.8rem;
+  border: 1px solid var(--primario);
+  border-radius: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.container .spacework .contMusic .allMusic .musicRegister .head .btnAdd:hover {
+  background: transparent;
+  color: var(--primario);
+}
+
+.container .spacework .contMusic .allMusic .musicRegister .head .btnAdd .icon {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.container .spacework .contMusic .allMusic .musicRegister .list {
+  /* background: #d7dc47; */
+  width: 100%;
+  height: calc(100% - 4rem);
+  padding: 1rem;
+  overflow: scroll;
+}
+
+.container
+  .spacework
+  .contMusic
+  .allMusic
+  .musicRegister
+  .list::-webkit-scrollbar {
+  display: none;
+}
+
+.container .spacework .contMusic .artist {
+  background: var(--terciario);
+}
+
+.contForm {
+  width: 30vw;
+  height: fit-content;
+}

@@ -1,0 +1,78 @@
+.contModal {
+  background: #04040404;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+  animation: contmodal 0.5s forwards;
+}
+
+@keyframes contmodal {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.modal {
+  width: fit-content;
+  height: fit-content;
+  border-radius: 0.5rem;
+  animation: modal 0.5s 0.5s forwards;
+  opacity: 0;
+}
+
+@keyframes modal {
+  0% {
+    transform: translateY(30px);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal .headModal {
+  background: var(--secundario);
+  height: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  /* box-shadow: 0 0 15px 0 #e5e5e5; */
+}
+
+.modal .headModal .title {
+  color: var(--terciario);
+  font-size: 0.9rem;
+  font-family: "Open Sans Condensed", sans-serif;
+}
+
+.modal .headModal .btnClose {
+  background: transparent;
+  color: var(--terciario);
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  transition: all .5s ease;
+}
+
+.modal .headModal .btnClose:hover {
+  color: var(--danger);
+}
+
+.modal .bodyModal {
+  background: var(--terciario);
+  border-radius: 0.5rem;
+  /* box-shadow: 0 0 15px 0 #e5e5e5; */
+}

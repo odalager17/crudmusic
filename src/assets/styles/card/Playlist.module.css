@@ -1,0 +1,79 @@
+.card {
+  background: var(--terciario);
+  border-radius: 0.8rem;
+  padding: 0.8rem 0.8rem 0 0.8rem;
+}
+
+.card .image {
+  background: #000;
+  width: 100%;
+  height: 60%;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.card .image .imgPlaylist {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card .information {
+  /* background: #0ba179; */
+  width: 100%;
+  height: 40%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.card .information .contName {
+  /* background: #f97f7f; */
+  width: calc(100% - 2.3rem);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.card .information .contName .type {
+  color: var(--primario);
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.card .information .contName .name {
+  color: var(--secundario);
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.card .information .btnPlay {
+  background: #33a1fb37;
+  width: 2.3rem;
+  height: 2.3rem;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.card .information .btnPlay .icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  background: var(--primario);
+  color: var(--terciario);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease;
+}
+
+.card .information .btnPlay:hover .icon {
+  width: 100%;
+  height: 100%;
+}

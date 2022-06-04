@@ -1,0 +1,87 @@
+.container {
+  /* background: #017937; */
+  width: 100%;
+  height: 6.5rem;
+  /* border-bottom: 1px solid var(--cuarto); */
+  /* margin-bottom: 1.5rem; */
+}
+
+.container .title {
+  color: var(--cuarto);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.container .input {
+  background: var(--terciario);
+  color: var(--primario);
+  width: 100%;
+  height: 2.5rem;
+  border: none;
+  border-radius: 0.3rem;
+  padding: 0 0.7rem;
+  transition: all 0.3s ease;
+  /* background: #e40505; */
+  border: 1px solid var(--cuarto);
+}
+
+.container .input:focus {
+  border: 1px solid var(--primario);
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: var(--primario);
+  -webkit-box-shadow: 0 0 0px 46px var(--fondo) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.container .contSelect {
+  padding: 0;
+  cursor: pointer;
+  border-radius: 0.3rem;
+}
+
+.contSelect:focus-within {
+  border: 1px solid var(--primario);
+}
+
+.container .contSelect .select::-webkit-scrollbar {
+  display: none;
+}
+
+.container .contInput {
+  /* background: #ee2222; */
+  padding: 0;
+  overflow: hidden;
+}
+
+.container .contInput .inputPass {
+  background: var(--fondo);
+  color: var(--primario);
+  width: calc(100% - 35px);
+  height: 100%;
+  border: none;
+  /* border-radius: 0.3rem; */
+  padding: 0 0.7rem;
+  transition: all 0.3s ease;
+}
+
+.container .contInput .btn {
+  background: transparent;
+  color: var(--cuarto);
+  width: 35px;
+  height: 35px;
+  border: none;
+  transition: all .5s ease;
+  cursor: pointer;
+}
+
+.container .contInput .btnActive {
+  color: var(--primario);
+}
+
+.container .txtWarning {
+  color: var(--danger);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
