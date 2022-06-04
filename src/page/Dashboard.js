@@ -14,6 +14,7 @@ const modalStates = { addSong: false };
 function Dashboard() {
   const [activeModals, setActiveModals] = useState(modalStates);
   const [musics, setMusics] = useState([]);
+  const [refect, setRefect] = useState(false);
 
   const changeModalState = (modal) => async () => {
     setActiveModals({ ...activeModals, [modal]: !activeModals[modal] });
@@ -31,7 +32,7 @@ function Dashboard() {
     }
 
     getMusics();
-  }, []);
+  }, [refect]);
 
   return (
     <div className={style.container}>
@@ -87,7 +88,7 @@ function Dashboard() {
         close={changeModalState("addSong")}
       >
         <div className={style.contForm}>
-          <FormCreate />
+          <FormCreate status={setRefect} close={changeModalState("addSong")} />
         </div>
       </Modal>
     </div>

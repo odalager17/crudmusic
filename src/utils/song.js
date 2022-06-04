@@ -1,15 +1,15 @@
 import * as Yup from "yup";
 
 export const AddSongInitialState = {
-  name: "",
-  artist: "",
-  type: "",
-  time: "",
+  nombre: "",
+  autor: "",
+  genero: "",
+  duracion: ""
 };
 
 export const AddSongValidationSchema = Yup.object({
-  name: Yup.string().required("Este campo es requerido"),
-  artist: Yup.string().required("Este campo es requerido"),
-  type: Yup.string().required("Este campo es requerido"),
-  time: Yup.string().required("Este campo es requerido"),
+  nombre: Yup.string().required("Este campo es requerido"),
+  autor: Yup.string().required("Este campo es requerido"),
+  genero: Yup.string().required("Este campo es requerido"),
+  duracion: Yup.string().required("Este campo es requerido")
 });

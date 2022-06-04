@@ -1,11 +1,21 @@
+import axios from "axios";
 import { Form, Formik } from "formik";
 import style from "../../assets/styles/form/form.module.css";
 import { AddSongInitialState, AddSongValidationSchema } from "../../utils/song";
 import Input from "../input/Input";
 
-function FormCreate() {
+function FormCreate({ status, close }) {
   const handleSubmit = async (values) => {
-    console.log(values);
+    try {
+      const URL = "http://localhost:8080/api/musica";
+      const response = await axios.post(URL, values);
+      if (response.data) alert("Agregado correctamente");
+    } catch (error) {
+      alert("Ocurrio un error al agregar");
+      return null;
+    }
+    status(true);
+    close();
   };
 
   return (
@@ -16,12 +26,14 @@ function FormCreate() {
     >
       <Form className={style.form}>
         <div className={style.contInputs}>
-          <Input name="name" title="Nombre de la canción" type="text" />
-          <Input name="artist" title="Nombre del artista" type="text" />
-          <Input name="type" title="Género" type="text" />
-          <Input name="time" title="Duración" type="text" />
+          <Input name="nombre" title="Nombre de la canción" type="text" />
+          <Input name="autor" title="Nombre del artista" type="text" />
+          <Input name="genero" title="Género" type="text" />
+          <Input name="duracion" title="Duración" type="text" />
         </div>
-        <button type="submit" className={style.btnSend}>Guardar</button>
+        <button type="submit" className={style.btnSend}>
+          Guardar
+        </button>
       </Form>
     </Formik>
   );
