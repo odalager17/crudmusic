@@ -38,7 +38,7 @@ function Dashboard() {
     <div className={style.container}>
       <Menu />
       <div className={style.spacework}>
-        <Header />
+        <Header setMusics={setMusics} reset={setRefect} />
         <div className={style.contMusic}>
           <div className={style.allMusic}>
             <div className={style.contPlaylist}>

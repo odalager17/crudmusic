@@ -1,7 +1,34 @@
+import axios from "axios";
+import { useState } from "react";
 import { Bell, Search } from "react-feather";
 import style from "../../assets/styles/header/Header.module.css";
 
-function Header() {
+function Header({ setMusics, reset }) {
+  const [search, setSearch] = useState("");
+
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      handleSearch();
+    }
+  };
+
+  const handleSearch = async () => {
+    try {
+      const URL = "http://localhost:8080/api/musica";
+      const response = await axios.get(URL, { params: { autor: search } });
+      if (response.data) {
+        setMusics(response.data);
+      } else {
+        reset((prevStatus) => !prevStatus);
+        alert("No se encontro a ese artista");
+      }
+      setSearch("");
+    } catch (error) {
+      alert("Ocurrio un error al buscar");
+      return null;
+    }
+  };
+
   return (
     <div className={style.header}>
       <div className={style.head}>
@@ -13,10 +40,18 @@ function Header() {
         </div>
         <div className={style.contSearch}>
           <div className={style.search}>
-            <button className={style.contIcon}>
+            <button className={style.contIcon} onClick={handleSearch}>
               <Search size={15} />
             </button>
-            <input className={style.input} type="text" placeholder="buscar" />
+            <input
+              className={style.input}
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              onKeyPress={handleKeyPress}
+              placeholder="buscar por artista"
+              autoFocus
+            />
           </div>
           <button className={style.notify}>
             <Bell size={20} />
