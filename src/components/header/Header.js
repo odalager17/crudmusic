@@ -12,6 +12,13 @@ function Header({ setMusics, reset }) {
     }
   };
 
+  const handleChange = (e) => {
+    if (e.target.value === "") {
+      reset((prevStatus) => !prevStatus);
+    }
+    setSearch(e.target.value);
+  };
+
   const handleSearch = async () => {
     try {
       const URL = "http://localhost:8080/api/musica";
@@ -19,10 +26,8 @@ function Header({ setMusics, reset }) {
       if (response.data) {
         setMusics(response.data);
       } else {
-        reset((prevStatus) => !prevStatus);
         alert("No se encontro a ese artista");
       }
-      setSearch("");
     } catch (error) {
       alert("Ocurrio un error al buscar");
       return null;
@@ -47,7 +52,7 @@ function Header({ setMusics, reset }) {
               className={style.input}
               type="text"
               value={search}
-              onChange={(e) => setSearch(e.target.value)}
+              onChange={handleChange}
               onKeyPress={handleKeyPress}
               placeholder="buscar por artista"
               autoFocus
