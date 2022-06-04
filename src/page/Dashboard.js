@@ -74,12 +74,7 @@ function Dashboard() {
               </div>
               <div className={style.list}>
                 {musics.map((data) => (
-                  <Music
-                    key={data.id}
-                    data={data}
-                    status={setRefect}
-                    close={changeModalState("addSong")}
-                  />
+                  <Music key={data.id} data={data} status={setRefect} />
                 ))}
               </div>
             </div>
@@ -93,7 +88,7 @@ function Dashboard() {
         close={changeModalState("addSong")}
       >
         <div className={style.contForm}>
-          <FormCreate status={setRefect} />
+          <FormCreate status={setRefect} close={changeModalState("addSong")} />
         </div>
       </Modal>
     </div>

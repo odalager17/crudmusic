@@ -1,3 +1,4 @@
+import axios from "axios";
 import classNames from "classnames";
 import { useState } from "react";
 import { Delete, Edit2, MoreVertical, Trash2 } from "react-feather";
@@ -74,7 +75,11 @@ function Music({ data, status }) {
         show={activeModals.deleteSong}
         close={changeModalState("deleteSong")}
       >
-        <DeleteSong />
+        <DeleteSong
+          data={data}
+          status={status}
+          close={changeModalState("deleteSong")}
+        />
       </Modal>
     </div>
   );
@@ -92,12 +97,29 @@ const MenuItem = ({ text, children, onClick, color }) => (
   </div>
 );
 
-const DeleteSong = () => (
-  <div className={style.contDelete}>
-    <p className={style.text}>¿Seguro que quieres eliminar esta canción?</p>
-    <p className={style.song}>name song</p>
-    <button className={style.btnDelete}>Si, eliminar</button>
-  </div>
-);
+const DeleteSong = ({ data, status, close }) => {
+  const deleteMusic = async () => {
+    try {
+      const URL = "http://localhost:8080/api/musica/" + data.id;
+      const response = await axios.delete(URL);
+      if (response.data) alert("Eliminado correctamente");
+    } catch (error) {
+      alert("Ocurrio un error al eliminar");
+      return null;
+    }
+    status((prevStatus) => !prevStatus);
+    close();
+  };
+
+  return (
+    <div className={style.contDelete}>
+      <p className={style.text}>¿Seguro que quieres eliminar esta canción?</p>
+      <p className={style.song}>{data.nombre}</p>
+      <button className={style.btnDelete} onClick={deleteMusic}>
+        Si, eliminar
+      </button>
+    </div>
+  );
+};
 
 export default Music;
